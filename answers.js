@@ -45,3 +45,21 @@ function isTrue(element) {
 }
 
 console.log(filterArray(toBeFiltered, isTrue));
+
+// Exercise 4
+// Write a function called longestWord that takes a string as argument, 
+// and returns the longest word in the string. You should use Array.prototype.reduce to do your work.
+
+// Hint: You can use String.prototype.split to split the string into an array of words.
+
+function longestWord(string) {
+    var wordsArray = string.split(" ");
+    return wordsArray.reduce(function (prev, next) {
+        if (prev.length < next.length) {
+            prev = next;
+        } 
+        return prev;
+        });
+}
+
+console.log(longestWord("What is the longest word in this sentence?"));
