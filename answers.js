@@ -170,3 +170,42 @@ function highLowTwo(newArray) {
 console.log(highLowTwo([10, -50, 40, -9, 58, -5]));
 console.log(highLowTwo([1, -10, 20, 40, 5]));
 console.log(highLowTwo([-109, 104, -1020, 2080, 40, 5]));
+
+
+/* Exercise 8
+Write a function called countChars that takes a string, and returns an object where the keys are letters, 
+and the value is the number of times that letter appears.
+
+For example, with input "hello world", the output should be:
+{
+  "h": 1,
+  "e": 1,
+  "l": 3,
+  "o": 2,
+  "w": 1,
+  "r": 1,
+  "d": 1
+}
+NOTE: Unlike arrays, objects don't have any ordering on them. 
+When you print your object on the console, your keys may be displayed in a different order, 
+and it does not matter. */
+
+function isALetter(char) {
+    if (char !== " ") {
+        return char;
+    }
+}
+
+function countChars(str) {
+    var newArray = str.toLowerCase().split("").filter(isALetter);
+    return newArray.reduce(function (acc, next) {
+        if (!acc[next]) {
+            acc[next] = 1
+        } else {
+            acc[next] = acc[next] + 1;
+        }
+        return acc;
+    }, {});
+}
+
+console.log(countChars("abbbbbbbbbcccc"));  // we made it works, but I still don't really understand properties and why it works :(
