@@ -98,3 +98,31 @@ function countVowels2(string) {
 
 console.log(countVowels("Annie likes cats"));
 console.log(countVowels2("What is the longest word in this sentence?"));
+
+// Exercise 6
+// Write a function called highLow that takes an array of numbers, and returns an object with a property highest
+// containing the highest number, and a property lowest containing the lowest number, 
+// using Array.prototype.reduce.
+
+// For example, starting with [1, -10, 20, 40, 5], your function should return {highest: 40, lowest: -10}.
+
+// Hint: Javascript has a special value called Infinity, which is higher than any other number. 
+// See if you can initialize your reduce accumulator with Infinity and -Infinity :)
+
+function highLow(newArray) {
+    return newArray.reduce(function(acc, next) {
+        if (acc.highest < next) {
+            acc.highest = next;
+        }
+        if (acc.lowest > next) {
+            acc.lowest = next;
+        } 
+        return acc;
+    }, {
+        highest: -Infinity,
+        lowest: Infinity
+    });
+}
+
+console.log(highLow([1, -10, 20, 40, 5]));
+console.log(highLow([-109, 104, -10020, 2080, 40, 5]));
