@@ -126,3 +126,47 @@ function highLow(newArray) {
 
 console.log(highLow([1, -10, 20, 40, 5]));
 console.log(highLow([-109, 104, -10020, 2080, 40, 5]));
+
+/* Exercise 7
+
+Expanding on exercise 6, write a function called highLowTwo that takes an array of numbers, 
+and returns the highest, second highest, lowest, and second lowest numbers.
+
+For example, starting with [1, -10, 20, 40, 5], your function should return:
+
+{
+  "highest": 40,
+  "secondHighest": 20,
+  "lowest": -10,
+  "secondLowest": 5
+}
+*/
+
+function highLowTwo(newArray) {
+    return newArray.reduce(function(acc, next) {
+        if (next > acc.highest) {
+            acc.secondHighest = acc.highest;
+            acc.highest = next;
+        }
+        else if (next > acc.secondHighest) {
+            acc.secondHighest = next;
+        }
+        if (next < acc.lowest) {
+            acc.secondLowest = acc.lowest;
+            acc.lowest = next;
+        } 
+        else if (next < acc.secondLowest) {
+            acc.secondLowest = next;
+        }
+        return acc;
+    }, {
+        highest: -Infinity,
+        secondHighest: -Infinity,
+        secondLowest: Infinity,
+        lowest: Infinity
+    });
+}
+
+console.log(highLowTwo([10, -50, 40, -9, 58, -5]));
+console.log(highLowTwo([1, -10, 20, 40, 5]));
+console.log(highLowTwo([-109, 104, -1020, 2080, 40, 5]));
