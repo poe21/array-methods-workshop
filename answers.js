@@ -22,3 +22,26 @@ function getPositives(element) {
 }
 
 console.log(negativesAndPositivesArray.filter(getPositives));
+
+// Exercise 3
+// Write a function called filterArray that takes an array AND a function as arguments. 
+// Your filter function should return a new array that contains only the elements where 
+// the passed function returns a truthy value.
+
+// NOTE: You are allowed to use Array.prototype.filter to answer this question.
+
+// NOTE 2: This is a bit of a trick question, the answer is a one-liner :)
+
+var toBeFiltered = [21, false, "cat", ""];
+
+function filterArray(array, func) {
+    return array.filter(func);
+}
+
+function isTrue(element) {
+    if (true) {
+        return element;
+    }
+}
+
+console.log(filterArray(toBeFiltered, isTrue));
