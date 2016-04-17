@@ -280,14 +280,6 @@ keyed by their unique ID.
 
 You have effectively created what we call an index, not unlike the one you have in your phonebook. */
 
-/*function getPeopleIds(peopleArray) {
-    var ids = [];
-    peopleArray.forEach(function(person) {
-        ids.push(person.id);
-    });
-    return ids;
-}*/
-
 function peopleById(arr) {
     return arr.reduce(function(acc, curr) {
         acc[curr.id]=curr;
